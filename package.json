@@ -1,0 +1,121 @@
+{
+	"name": "kiwi-linter-x",
+	"displayName": "kiwi-linter-x",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascriptreact",
+    "onLanguage:javascript",
+    "onLanguage:html",
+    "onCommand:vscode-i18n-linter.replaceCommon",
+    "onCommand:vscode-i18n-linter.findI18N",
+    "onCommand:vscode-i18n-linter.findAllI18N"
+  ],
+	"main": "./out/extension.js",
+	"contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "I18N Linter",
+      "properties": {
+        "vscode-i18n-linter.markStringLiterals": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mark string literals in editor so you can quickly spot on them"
+        },
+        "vscode-i18n-linter.langPrefix": {
+          "type": "string",
+          "default": ".kiwi/zh-CN/",
+          "description": "Language store path"
+        },
+        "vscode-i18n-linter.showOverviewRuler": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show non-English letter position on the overview ruler"
+        },
+        "vscode-i18n-linter.markColor": {
+          "type": "string",
+          "default": "#f40",
+          "description": "The color of matched non-English letters"
+        },
+        "vscode-i18n-linter.enableReplaceSuggestion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add a light blob beside string literal and provide I18N variable replacement suggestions"
+        },
+        "vscode-i18n-linter.i18nFilesPattern": {
+          "type": "string",
+          "default": "**/src/**/*.+(js*|html|ts*)",
+          "description": "A glob expression (eg. abc/**/*.ts) to match I18N translation files"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "vscode-i18n-linter.replaceCommon",
+        "title": "Replace Common String Literals to I18N variables"
+      },
+      {
+        "command": "vscode-i18n-linter.findI18N",
+        "title": "Search inside Current File for I18N Strings"
+      },
+      {
+        "command": "vscode-i18n-linter.findAllI18N",
+        "title": "Search inside All Files for I18N Strings"
+      },
+      {
+        "command": "vscode-i18n-linter.kiwigo",
+        "title": "Kiwi Go!"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-i18n-linter.findI18N",
+        "key": "cmd+ctrl+f",
+        "mac": "cmd+ctrl+f"
+      },
+      {
+        "command": "vscode-i18n-linter.findAllI18N",
+        "key": "cmd+ctrl+r",
+        "mac": "cmd+ctrl+r"
+      }
+    ]
+  },
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+  },
+  "dependencies": {
+    "@angular/compiler": "^7.2.0",
+    "find-in-files": "^0.5.0",
+    "fs-extra": "^7.0.1",
+    "globby": "^7.1.1",
+    "lodash": "^4.17.4",
+    "minimatch": "^3.0.4",
+    "prettier": "^1.16.4",
+    "randomstring": "^1.1.5",
+    "slash2": "^2.0.0",
+    "ts-node": "^6.0.3"
+  }
+}
