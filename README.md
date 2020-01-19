@@ -1,65 +1,88 @@
-# demo-ts README
+# kiwi linter x
 
-This is the README for your extension "demo-ts". After writing up a brief description, we recommend including the following sections.
+基于kiwi linter修改， 以满足写入方式为 ts('I18N.xx..', { val1, ... })
 
-## Features
+## 如何使用
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+> VS Code 插件搜索 kiwi linter 安装
 
-For example if there is an image subfolder under your extension project workspace:
+> 推荐与[🐤 Kiwi-国际化全流程解决方案](https://github.com/alibaba/kiwi)结合使用
 
-\!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![演示](https://img.alicdn.com/tfs/TB1EYENfTnI8KJjy0FfXXcdoVXa-1006-368.gif)
 
-## Requirements
+![展示](https://img.alicdn.com/tfs/TB1pzAIC4YaK1RjSZFnXXa80pXa-884-308.png)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## 配置项
 
-## Extension Settings
+### vscode-i18n-linter.i18nType
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+default: `kiwi-intl`
 
-For example:
+重写中文的方式， 默认为I18N.xx.xxx； 设为react-intl，写入类型则为 ts('I18N.xx.xxx')
 
-This extension contributes the following settings:
+### vscode-i18n-linter.langPrefix
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+default: `.kiwi/zh-CN/`
 
-## Known Issues
+多语言文件的位置, kiwi linter将根据目录内的多语言文件提取对应语言(默认为中文`zh-CN`)高亮.
+可以参考的目录结构如下:
+![示例目录结构](./assets/i18n-folder-structure.gif)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### vscode-i18n-linter.i18nFilesPattern
 
-## Release Notes
+default: `**/src/**/ts*`
 
-Users appreciate release notes as you update your extension.
+待扫描的文件类型，可以基于 [minimatch](https://github.com/isaacs/minimatch) 规则进行自定义。
+
+### vscode-i18n-linter.markStringLiterals
+
+default: `true`
+
+是否标红中文字符串，默认开启。
+
+### vscode-i18n-linter.showOverviewRuler
+
+default: `true`
+
+右侧滚动条中，是否显示对应的待提取中文高亮。
+
+![](https://img.alicdn.com/tfs/TB1CHZRrxGYBuNjy0FnXXX5lpXa-1088-568.png)
+
+### vscode-i18n-linter.markColor
+
+default: `#ff4400`
+
+待提取文字，高亮颜色。
+
+### vscode-i18n-linter.enableReplaceSuggestion
+
+default: `true`
+
+是否开启一键提取中文功能。
+
+## VS code 命令
+
+### 在全部代码库中查找国际化文案
+默认快捷键是 `cmd + ctrl + r`.
+
+
+### 在当前文件中查找国际化文案
+默认快捷键是 `cmd + ctrl + f`.
+
+![](https://img.alicdn.com/tfs/TB1dzf8rpOWBuNjy0FiXXXFxVXa-1256-700.png)
+
+## Changelog
+
+### 1.1.4
+
+-  优化国际化文案提示
+
+### 1.1.2
+
+- 支持 HTML 文件
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- 支持国际化 Key 值显示
+- 支持对应国际化文案的搜索
