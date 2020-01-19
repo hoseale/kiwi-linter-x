@@ -1,6 +1,7 @@
 # kiwi linter x
 
-基于kiwi linter修改， 以满足写入方式为 ts('I18N.xx..', { val1, ... })
+基于kiwi linter修改，增加了i18nType配置项， 以满足覆盖方式为 ts('I18N.xx..', { val1, ... }).
+注意：使用方式和kiwi linter 完全相同，自定义写入的键值也为I18N.xx.xx,  配置i18nType后会自动改变覆盖值为ts('I18N.xxx').
 
 ## 如何使用
 
