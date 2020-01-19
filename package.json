@@ -2,7 +2,7 @@
   "name": "kiwi-linter-x",
   "displayName": "kiwi-linter-x",
   "description": "A VSCode extension to identify and extract string literals for js(x)/ts(x) files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "hosea",
   "engines": {
     "vscode": "^1.40.2"
