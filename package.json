@@ -2,7 +2,8 @@
 	"name": "kiwi-linter-x",
 	"displayName": "kiwi-linter-x",
 	"description": "",
-	"version": "0.0.1",
+  "version": "0.0.1",
+  "publisher": "hosea",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
