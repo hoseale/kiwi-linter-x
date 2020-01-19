@@ -6,6 +6,11 @@
 import { TargetStr } from './define';
 import * as vscode from 'vscode';
 import { updateLangFiles } from './file';
+import { getConfiguration } from './utils';
+
+const i18nType = getConfiguration('i18nType');
+const isKiwi = 'kiwi-intl' === i18nType;
+
 /**
  * 更新文件
  * @param arg  目标字符串对象
@@ -33,9 +38,9 @@ export function replaceAndUpdate(arg: TargetStr, val: string, validateDuplicate:
     let finalReplaceVal = val;
     if (last2Char === '=') {
       if (isHtmlFile) {
-        finalReplaceVal = '{{' + val + '}}';
+        finalReplaceVal = isKiwi ? `{{${val}}}` : `{{ts('${val}')}}`;
       } else {
-        finalReplaceVal = '{' + val + '}';
+        finalReplaceVal = isKiwi ? `{${val}}` : `{ts('${val}')}`;
       }
     }
     // 若是模板字符串，看看其中是否包含变量
@@ -45,7 +50,9 @@ export function replaceAndUpdate(arg: TargetStr, val: string, validateDuplicate:
         const kvPair = varInStr.map((str, index) => {
           return `val${index + 1}: ${str.replace(/^\${([^\}]+)\}$/, '$1')}`;
         });
-        finalReplaceVal = `I18N.template(${val}, { ${kvPair.join(',\n')} })`;
+        finalReplaceVal = isKiwi 
+          ? `I18N.template(${val}, { ${kvPair.join(',\n')} })`
+          : `ts('${val}', { ${kvPair.join(',\n')} })` ;
 
         varInStr.forEach((str, index) => {
           finalReplaceText = finalReplaceText.replace(str, `{val${index + 1}}`);
@@ -63,9 +70,9 @@ export function replaceAndUpdate(arg: TargetStr, val: string, validateDuplicate:
     );
   } else {
     if (isHtmlFile) {
-      edit.replace(document.uri, arg.range, '{{' + val + '}}');
+      edit.replace(document.uri, arg.range, isKiwi ? '{{' + val + '}}' : `{{ts('${val}')}}`);
     } else {
-      edit.replace(document.uri, arg.range, '{' + val + '}');
+      edit.replace(document.uri, arg.range, isKiwi ? '{' + val + '}' : `{ts('${val}')}` );
     }
   }
 

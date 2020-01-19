@@ -69,6 +69,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   // 识别到出错时点击小灯泡弹出的操作
   const hasLightBulb = getConfiguration('enableReplaceSuggestion');
+  const i18nType = getConfiguration('i18nType');
+
   if (hasLightBulb) {
     context.subscriptions.push(
       vscode.languages.registerCodeActionsProvider(
@@ -81,6 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
         ],
         {
           provideCodeActions: function(document, range, context, token) {
+            
             const targetStr = targetStrs.find(t => range.intersection(t.range) !== undefined);
             if (targetStr) {
               const sameTextStrs = targetStrs.filter(t => t.text === targetStr.text);
@@ -88,8 +91,12 @@ export function activate(context: vscode.ExtensionContext) {
               const actions = [];
               for (const key in finalLangObj) {
                 if (finalLangObj[key] === text) {
+                  let titleType = {
+                    'kiwi-intl': `抽取为 \`I18N.${key}\``,
+                    'react-intl': `抽取为 \`ts('I18N.${key}')\``
+                  };
                   actions.push({
-                    title: `抽取为 \`I18N.${key}\``,
+                    title: titleType[i18nType],
                     command: 'vscode-i18n-linter.extractI18N',
                     arguments: [
                       {
