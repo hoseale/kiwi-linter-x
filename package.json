@@ -1,15 +1,15 @@
 {
-	"name": "kiwi-linter-x",
-	"displayName": "kiwi-linter-x",
-	"description": "A VSCode extension to identify and extract string literals for js(x)/ts(x) files",
-  "version": "0.0.1",
+  "name": "kiwi-linter-x",
+  "displayName": "kiwi-linter-x",
+  "description": "A VSCode extension to identify and extract string literals for js(x)/ts(x) files",
+  "version": "0.0.2",
   "publisher": "hosea",
-	"engines": {
-		"vscode": "^1.40.2"
-	},
-	"categories": [
-		"Other"
-	],
+  "engines": {
+    "vscode": "^1.40.2"
+  },
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
@@ -22,7 +22,7 @@
   ],
   "main": "./out/extension.js",
   "icon": "icon.png",
-	"contributes": {
+  "contributes": {
     "configuration": {
       "type": "object",
       "title": "I18N Linter",
@@ -95,25 +95,25 @@
       }
     ]
   },
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.40.0",
-		"glob": "^7.1.5",
-		"mocha": "^6.2.2",
-		"tslint": "^5.20.0",
-		"vscode-test": "^1.2.2"
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.40.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "tslint": "^5.20.0",
+    "vscode-test": "^1.2.2"
   },
   "dependencies": {
-		"typescript": "^3.6.4",
+    "typescript": "^3.6.4",
     "@angular/compiler": "^7.2.0",
     "find-in-files": "^0.5.0",
     "fs-extra": "^7.0.1",
