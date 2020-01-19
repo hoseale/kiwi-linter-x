@@ -50,16 +50,16 @@
   integrity sha1-MV1XDMtWxTRS/4Y4c432BybVtuo=
 
 "@types/node@*":
-  version "13.1.7"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.1.7.tgz#db51d28b8dfacfe4fb2d0da88f5eb0a2eca00675"
-  integrity sha1-21HSi436z+T7LQ2oj16wouygBnU=
+  version "13.1.8"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.1.8.tgz?cache=0&sync_timestamp=1579286175035&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-13.1.8.tgz#1d590429fe8187a02707720ecf38a6fe46ce294b"
+  integrity sha1-HVkEKf6Bh6AnB3IOzzim/kbOKUs=
 
 "@types/node@^12.11.7":
-  version "12.12.24"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.24.tgz#d4606afd8cf6c609036b854360367d1b2c78931f"
-  integrity sha1-1GBq/Yz2xgkDa4VDYDZ9Gyx4kx8=
+  version "12.12.25"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.25.tgz?cache=0&sync_timestamp=1579286175035&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.25.tgz#792c0afb798f1dd681dce9c4b4c431f7245a0a42"
+  integrity sha1-eSwK+3mPHdaB3OnEtMQx9yRaCkI=
 
-"@types/vscode@^1.41.0":
+"@types/vscode@^1.40.0":
   version "1.41.0"
   resolved "https://registry.npm.taobao.org/@types/vscode/download/@types/vscode-1.41.0.tgz#b0d75920220f84e07093285e59180c0f11d336cd"
   integrity sha1-sNdZICIPhOBwkyheWRgMDxHTNs0=
