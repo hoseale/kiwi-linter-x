@@ -35,12 +35,12 @@ export function replaceAndUpdate(arg: TargetStr, val: string, validateDuplicate:
     }
     const prevTextRange = new vscode.Range(startColPostion, arg.range.start);
     const [last2Char, last1Char] = document.getText(prevTextRange).split('');
-    let finalReplaceVal = val;
+    let finalReplaceVal = isKiwi ? val : `ts('${val}')` ;
     if (last2Char === '=') {
       if (isHtmlFile) {
-        finalReplaceVal = isKiwi ? `{{${val}}}` : `{{ts('${val}')}}`;
+        finalReplaceVal = `{{${finalReplaceVal}}}`;
       } else {
-        finalReplaceVal = isKiwi ? `{${val}}` : `{ts('${val}')}`;
+        finalReplaceVal = `{${finalReplaceVal}}`;
       }
     }
     // 若是模板字符串，看看其中是否包含变量
