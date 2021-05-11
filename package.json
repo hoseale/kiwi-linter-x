@@ -124,7 +124,7 @@
     "find-in-files": "^0.5.0",
     "fs-extra": "^7.0.1",
     "globby": "^7.1.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "minimatch": "^3.0.4",
     "prettier": "^1.16.4",
     "randomstring": "^1.1.5",
